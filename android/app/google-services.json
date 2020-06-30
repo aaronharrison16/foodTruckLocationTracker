@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1050221137357",
+    "firebase_url": "https://food-truck-location-tracker.firebaseio.com",
+    "project_id": "food-truck-location-tracker",
+    "storage_bucket": "food-truck-location-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050221137357:android:9a68005f6b62c95f1fc884",
+        "android_client_info": {
+          "package_name": "com.foodtrucklocationtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050221137357-o5cp8fifperkhghm320dqdqostst5k35.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.foodtrucklocationtracker",
+            "certificate_hash": "6f504913ef8edd4ed011db9047440ef4b68e1003"
+          }
+        },
+        {
+          "client_id": "1050221137357-ses9l2gvmcmm3f2buihnmob5tctd2jr7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCRvOkQ7Wht30ZyiFeHdAeRN2ig4iq8as"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050221137357-ses9l2gvmcmm3f2buihnmob5tctd2jr7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
