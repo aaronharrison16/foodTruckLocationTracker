@@ -17,7 +17,7 @@ const PrimaryButton = props => {
 
   if (props.outlined) {
     buttonProps['borderColor'] = color
-    // buttonProps['backgroundColor'] = 'transparent'
+    buttonProps['backgroundColor'] = 'transparent'
     textProps['color'] = color 
   } else {
     buttonProps['backgroundColor'] = color
