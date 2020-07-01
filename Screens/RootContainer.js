@@ -6,17 +6,22 @@ import { createDrawerNavigator } from '@react-navigation/drawer'
 
 import HomeScreen from './HomeScreen'
 import SettingsScreen from './SettingsScreen'
+import LandingScreen from './LandingScreen'
+import { SafeAreaView } from 'react-native'
 
 const Drawer = createDrawerNavigator()
 
 function RootContainer () {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator edgeWidth={75}>
-        <Drawer.Screen name='Home' component={HomeScreen} />
-        <Drawer.Screen name='Settings' component={SettingsScreen} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={{flex: 1}}>
+      <NavigationContainer>
+        <Drawer.Navigator edgeWidth={75}>
+          <Drawer.Screen name='Landing' component={LandingScreen} />
+          <Drawer.Screen name='Home' component={HomeScreen} />
+          <Drawer.Screen name='Settings' component={SettingsScreen} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
   )
 }
 
