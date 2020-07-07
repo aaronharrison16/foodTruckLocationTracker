@@ -2,13 +2,14 @@ import React from 'react'
 import { View, Text, Platform } from 'react-native'
 import { TouchableNativeFeedback, TouchableOpacity } from 'react-native-gesture-handler'
 import { StyleSheet } from 'react-native'
-import Colors from '../Constants/Colors'
+import { useTheme } from '@react-navigation/native'
 
 const PrimaryButton = props => {
+  const { colors } = useTheme()
   let ButtonFeedback = TouchableOpacity
   let buttonProps = {}
   let textProps = {}
-  let color = props.color != null ? props.color : Colors.primary
+  let color = props.color != null ? props.color : colors.primary
   let textColor = props.textColor != null ? props.textColor : 'white'
 
   if (Platform.OS === 'android' && Platform.Version >= 21) {
@@ -64,4 +65,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default PrimaryButton
+export { PrimaryButton }

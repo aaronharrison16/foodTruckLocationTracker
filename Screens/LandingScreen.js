@@ -1,18 +1,40 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { TouchableNativeFeedback } from 'react-native-gesture-handler'
-import PrimaryButton from '../Components/PrimaryButton'
-import Colors from '../Constants/Colors'
+import { View, StyleSheet } from 'react-native'
+import { useTheme } from '@react-navigation/native'
+
+import { PrimaryButton, HeaderText } from '../Components'
 
 const LandingScreen = () => {
+  const { colors } = useTheme()
+  
+  const onSignUpPress = () => {
+    console.log('onSignUpPress')
+  }
+  const onLogInPress = () => {
+    console.log('onLogInPress')
+  }
+
   return (
     <>
       <View style={styles.infoContainer}>
-
+        <HeaderText>From the LandingScreen</HeaderText>
       </View>
       <View style={styles.buttonContainer}>
-        <PrimaryButton style={styles.button}>Sign up</PrimaryButton>
-        <PrimaryButton style={styles.button} color={Colors.secondary} outlined={true}>Log in</PrimaryButton>
+        <PrimaryButton
+          onPress={onSignUpPress}
+          style={styles.button}
+        >
+          Sign up
+        </PrimaryButton>
+
+        <PrimaryButton
+          onPress={onLogInPress}
+          style={styles.button}
+          color={colors.secondary}
+          outlined={true}
+        >
+          Log in
+        </PrimaryButton>
       </View>
     </>
   )
@@ -21,7 +43,8 @@ const LandingScreen = () => {
 const styles = StyleSheet.create({
   infoContainer: {
     flex: 11,
-    backgroundColor: 'red'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   buttonContainer: {
     flex: 2,

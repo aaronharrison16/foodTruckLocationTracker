@@ -1,26 +1,41 @@
 import React from 'react'
+import { SafeAreaView, StatusBar, View } from 'react-native'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { NavigationContainer } from '@react-navigation/native'
-import { createDrawerNavigator } from '@react-navigation/drawer'
+import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+
 
 import HomeScreen from './HomeScreen'
 import SettingsScreen from './SettingsScreen'
 import LandingScreen from './LandingScreen'
-import { SafeAreaView } from 'react-native'
+import Themes from '../Constants/Themes';
+import Colors from '../Constants/Colors';
+import { BottomNavBar } from '../Components';
 
-const Drawer = createDrawerNavigator()
+const Tab = createBottomTabNavigator()
 
-function RootContainer () {
+function RootContainer ({navigation}) {
+  const scheme = useColorScheme()
+
   return (
     <SafeAreaView style={{flex: 1}}>
-      <NavigationContainer>
-        <Drawer.Navigator edgeWidth={75}>
-          <Drawer.Screen name='Landing' component={LandingScreen} />
-          <Drawer.Screen name='Home' component={HomeScreen} />
-          <Drawer.Screen name='Settings' component={SettingsScreen} />
-        </Drawer.Navigator>
-      </NavigationContainer>
+      <AppearanceProvider>
+        <NavigationContainer theme={scheme === 'dark' ? Themes.darkTheme : Themes.lightTheme}>
+          <StatusBar
+            backgroundColor={scheme === 'dark' ? Colors.dark : Colors.light}
+            barStyle={scheme === 'dark' ? 'light-content' : 'dark-content'}  
+          />
+          <View style={{flex: 1}}>
+            <Tab.Navigator tabBar={props => <BottomNavBar {...props} />}>
+              <Tab.Screen name='Home' component={HomeScreen} icon='home' />
+              <Tab.Screen name='Landing' component={LandingScreen} icon='truck' />  
+              <Tab.Screen name='Settings' component={SettingsScreen} icon='settings' />
+            </Tab.Navigator>  
+          </View>
+        </NavigationContainer>
+      </AppearanceProvider>
     </SafeAreaView>
   )
 }
