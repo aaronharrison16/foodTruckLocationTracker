@@ -1,5 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
+import { connect } from 'react-redux'
 
 import { HeaderText } from '../Components'
 
@@ -11,4 +12,9 @@ const SettingsScreen = () => {
   )
 }
 
-export default SettingsScreen
+const mapStateToProps = () => {
+
+  return {}
+}
+
+export default connect(mapStateToProps, null)(SettingsScreen)

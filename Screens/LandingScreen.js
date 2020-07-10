@@ -1,23 +1,36 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 import { useTheme } from '@react-navigation/native'
+import { connect } from 'react-redux'
 
 import { PrimaryButton, HeaderText } from '../Components'
+import { Carousel } from '../Components/Carousel'
 
-const LandingScreen = () => {
+const LandingScreen = props => {
   const { colors } = useTheme()
   
   const onSignUpPress = () => {
-    console.log('onSignUpPress')
+    props.navigation.navigate('SignUp')
   }
   const onLogInPress = () => {
-    console.log('onLogInPress')
+    props.navigation.navigate('Login')
   }
 
   return (
     <>
       <View style={styles.infoContainer}>
-        <HeaderText>From the LandingScreen</HeaderText>
+        <Carousel
+          style="slides"
+          items={[{
+            title: 'Welcome, swipe to continue.',
+          }, {
+            title: 'About feature X.',
+          }, {
+            title: 'About feature Y.',
+          }, {
+            title: 'About feature Z.',
+          }]}
+        />
       </View>
       <View style={styles.buttonContainer}>
         <PrimaryButton
@@ -42,19 +55,21 @@ const LandingScreen = () => {
 
 const styles = StyleSheet.create({
   infoContainer: {
-    flex: 11,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
   buttonContainer: {
-    flex: 2,
-    alignItems: 'center',
+    height: '18%',
     justifyContent: 'space-around',
-    padding: 10
-  },
-  button: {
-    width: 350
+    paddingHorizontal: 18,
+    paddingBottom: 10
   }
 })
 
-export default LandingScreen
+const mapStateToProps = () => {
+
+  return {}
+}
+
+export default connect(mapStateToProps, null)(LandingScreen)

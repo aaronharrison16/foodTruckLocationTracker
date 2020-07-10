@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { useTheme } from '@react-navigation/native'
-import { NavBarIcon } from '../Components'
+
+import { NavBarIcon } from '../Components/NavBarIcon'
 
 const BottomNavBar = ({ state, descriptors, navigation }) => {
   const { colors } = useTheme()

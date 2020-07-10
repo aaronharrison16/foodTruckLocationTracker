@@ -3,18 +3,18 @@ import { StyleSheet, View } from 'react-native'
 import { HeaderText, SocialAuthButtons } from '../Components'
 import { connect } from 'react-redux'
 
-const LoginScreen = props => {
+const SignupScreen = props => {
   return (
     <View style={styles.container}>
       <SocialAuthButtons />
-      <HeaderText>From the LoginScreen</HeaderText>
+      <HeaderText>From the SignupScreen</HeaderText>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   }
 })
 
@@ -23,4 +23,4 @@ const mapStateToProps = () => {
   return {}
 }
 
-export default connect(mapStateToProps, null)(LoginScreen)
+export default connect(mapStateToProps, null)(SignupScreen)
